@@ -45,6 +45,6 @@ export default interface  AxiosRequestConfig{
     maxRedirects?:number;
     socketPath?:string | null;
     proxy?:Proxy;
-    cancelToken:any;
-    decompress:boolean;
+    cancelToken?:any;
+    decompress?:boolean;
 }
