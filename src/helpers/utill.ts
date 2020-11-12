@@ -7,9 +7,12 @@ export function isDate( val : any ){
 }
 //判断是否为对象
 export function isObject( val:any ){
-    return utill_toString.call( val ) === "[Object Object]";
-    //或者
-    // return val !== null && typeof val === "object"
+    //这种方法返回的是各种对象，例如array，date，Regexp等
+    return val !== null && typeof val === "object";
+}
+//判断是否为普通对象({})
+export function isPlainObject( val:any ):boolean{
+    return utill_toString.call(val) === "[object Object]";
 }
 
 
