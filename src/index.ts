@@ -1,6 +1,7 @@
 import AxiosRequestConfig from "./types/axiosRequestConfig";
 import { buildURL } from "./helpers/url";
 import { transformRequest } from "./helpers/data";
+import { processHeaders } from "./helpers/headers"
 import xhr from "./xhr";
 function axios(config : AxiosRequestConfig):void{
 
@@ -11,6 +12,7 @@ function axios(config : AxiosRequestConfig):void{
 
 function processConfig( config:AxiosRequestConfig ):void{
     config.url = transformURL( config );
+    config.headers = transformHeaders( config );
     config.data = transformData( config );
 }
 
@@ -26,6 +28,11 @@ function transformData(config:AxiosRequestConfig):any {
     }
     return "";
 
+}
+function transformHeaders( config:AxiosRequestConfig ):any{
+
+    const { headers,data } = config;
+    return processHeaders( headers,data );
 }
 export default axios;
 
